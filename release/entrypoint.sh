@@ -7,12 +7,4 @@ set -e
 
 VERSION="${GITHUB_SHA:0:7}"
 
-unstable_channel_id() {
-  replicated channel ls | grep Unstable | awk '{print $1}'
-}
-
-new_sequence() {
-  replicated release create --yaml "$(< replicated.yaml)" | grep 'SEQUENCE:' | grep -Eo '[0-9]+'
-}
-
-RESULT=$(replicated release promote $(new_sequence) $(unstable_channel_id) --version "$VERSION")
+RESULT=$(replicated release create --yaml "$(< replicated.yaml)" --promote Unstable --version "$VERSION")
