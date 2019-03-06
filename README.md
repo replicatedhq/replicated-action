@@ -10,5 +10,5 @@ To get started, check out our documentation: [https://help.replicated.com/docs/g
 
 ### Release
 
-The [Release Action](https://github.com/replicatedhq/replicated-aciton/tree/master/release) creates a release and promotes it to the Unstable channel.
+The [Release Action](https://github.com/replicatedhq/replicated-action/tree/master/release) creates a release and promotes it to the Unstable channel.
 
