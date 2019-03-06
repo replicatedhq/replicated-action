@@ -1,9 +1,9 @@
 FROM debian:jessie-slim
 
-LABEL "com.github.actions.name"="Replicated Action"
+LABEL "com.github.actions.name"="Replicated Release Action"
 LABEL "com.github.actions.description"="Promote releases to your Replicated application"
-LABEL "com.github.actions.icon"="link"
-LABEL "com.github.actions.color"="gray-dark"
+LABEL "com.github.actions.icon"="code"
+LABEL "com.github.actions.color"="red"
 
 LABEL "repository"="https://github.com/replicatedhq/replicated-action"
 LABEL "homepage"="http://github.com/replicatedhq/replicated-action"
