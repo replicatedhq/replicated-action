@@ -7,4 +7,4 @@ set -e
 
 VERSION="${GITHUB_SHA:0:7}"
 
-RESULT=$(replicated release create --yaml "$(< replicated.yaml)" --promote Unstable --version "$VERSION")
+RESULT=$(replicated release create --yaml "$(< ${REPLICATED_YAML:-./replicated.yaml})" --promote "${REPLICATED_CHANNEL:-Unstable}" --version "${VERSION}")

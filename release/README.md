@@ -1,10 +1,12 @@
 # Replicated Release GitHub Action
 
-Creates a new release on your Replicated Unstable channel, with the replicated.yaml in your repo.
+Creates a new release on a Replicated release channel, with the yaml in your repo.
 
 This Action uses the [replicatedhq/replicated](https://github.com/replicatedhq/replicated) CLI to promote new releases to your Repliated App.
 
 By default, this action will create a new release in your app's unstable channel. This action looks for a file named `replicated.yaml` in the root of your repo. The release version will be the git commit SHA, and the release notes will match Pull Request message.
+
+You can set environment variables to use a different channel or path to a YAML.
 
 ### Quick Start
 
@@ -49,4 +51,6 @@ The following environment variables can be set to override defaults:
 | Name | Default Value | Description |
 |------|---------------|-------------|
 | REPLICATED_APP | "" | Required. Set to the app ID or app slug of your Replicated app |
+| REPLICATED_CHANNEL | "Unstable" | Set to the channel name or ID to promote to |
+| REPLICATED_YAML | "./replicated.yaml" | Set to the path of the YAML to promote |
 

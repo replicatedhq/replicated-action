@@ -1,4 +1,4 @@
-FROM debian:jessie-slim
+FROM actionblocks/debian:jessie-slim
 
 LABEL "com.github.actions.name"="Replicated Release Action"
 LABEL "com.github.actions.description"="Promote releases to your Replicated application"
@@ -18,5 +18,4 @@ RUN install ./replicated /usr/local/bin
 
 ADD . /action
 WORKDIR /action
-
-ENTRYPOINT ["/action/entrypoint.sh"]
+ADD ./entrypoint.sh /entrypoint.sh
