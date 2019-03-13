@@ -12,8 +12,8 @@ LABEL "maintainer"="Replicated <contact@replicated.com"
 RUN apt-get update -y && apt-get -y --no-install-recommends install ca-certificates && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /tmp
-ADD https://github.com/replicatedhq/replicated/releases/download/v0.6.0/replicated_0.6.0_linux_amd64.tar.gz /tmp/replicated_0.6.0_linux_amd64.tar.gz
-RUN tar xzvf /tmp/replicated_0.6.0_linux_amd64.tar.gz
+ADD https://github.com/replicatedhq/replicated/releases/download/v0.7.0/replicated_0.7.0_linux_amd64.tar.gz /tmp/replicated_0.7.0_linux_amd64.tar.gz
+RUN tar xzvf /tmp/replicated_0.7.0_linux_amd64.tar.gz
 RUN install ./replicated /usr/local/bin
 
 ADD . /action
