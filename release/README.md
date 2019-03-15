@@ -15,17 +15,17 @@ Add a new [GitHub Action](https://github.com/features/actions) to your repo. You
 ```hcl
 workflow "Replicated Unstable Release" {
   resolves = "replicated_release"
-  on = "pull_request"
+  on = "push"
 }
 
-action "filter-to-pr-closed" {
+action "filter-branch" {
   uses = "actions/bin/filter@master"
-  args = "action 'closed'"
+  args = "branch master"
 }
 
 action "replicated_release" {
   uses = "replicatedhq/replicated-action/release@v0.2.0"
-  needs = "filter-to-pr-closed"
+  needs = "filter-branch"
   secrets = [
     "GITHUB_TOKEN",
     "REPLICATED_API_TOKEN"
