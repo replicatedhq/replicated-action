@@ -13,7 +13,7 @@ You can set environment variables to use a different channel or path to a YAML.
 Add a new [GitHub Action](https://github.com/features/actions) to your repo. You can create a file named `.github/main.workflow` and use this as a quick start:
 
 ```hcl
-workflow "Replicated Unstable Release" {
+workflow "Replicated Release" {
   resolves = "replicated_release"
   on = "push"
 }
