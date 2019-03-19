@@ -12,3 +12,6 @@ To get started, check out our documentation: [https://help.replicated.com/docs/g
 
 The [Release Action](https://github.com/replicatedhq/replicated-action/tree/master/release) creates a release and promotes it to the Unstable channel.
 
+### Lint
+
+The [Lint Action](https://github.com/replicatedhq/replicated-action/tree/master/lint) lints a release and posts messages to a pull request.

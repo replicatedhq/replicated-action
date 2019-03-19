@@ -1,7 +1,7 @@
 FROM actionblocks/debian:jessie-slim
 
-LABEL "com.github.actions.name"="Replicated Release Action"
-LABEL "com.github.actions.description"="Promote releases to your Replicated application"
+LABEL "com.github.actions.name"="Replicated Lint Action"
+LABEL "com.github.actions.description"="Lint Replicated Releases"
 LABEL "com.github.actions.icon"="code"
 LABEL "com.github.actions.color"="red"
 

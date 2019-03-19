@@ -1,8 +1,8 @@
-# Replicated Release GitHub Action
+# Replicated Lint GitHub Action
 
-Creates a new release on a Replicated release channel, with the yaml in your repo.
+Lints a replicated or ship yaml with your account.
 
-This Action uses the [replicatedhq/replicated](https://github.com/replicatedhq/replicated) CLI to promote new releases to your Repliated App.
+This Action uses the [replicatedhq/replicated](https://github.com/replicatedhq/replicated) CLI to lint a release for your Replicated app. It will post linting errors, warnings and suggestions as a comment in the Pull Request.
 
 By default, this action will create a new release in your app's unstable channel. This action looks for a file named `replicated.yaml` in the root of your repo. The release version will be the git commit SHA, and the release notes will match Pull Request message.
 
@@ -13,19 +13,19 @@ You can set environment variables to use a different channel or path to a YAML.
 Add a new [GitHub Action](https://github.com/features/actions) to your repo. You can create a file named `.github/main.workflow` and use this as a quick start:
 
 ```hcl
-workflow "Replicated Release" {
-  resolves = "replicated_release"
-  on = "push"
+workflow "Lint Release" {
+  resolves = "replicated_lint"
+  on = "pull_request"
 }
 
-action "filter-branch" {
+action "filter-to-pr-open-synced" {
   uses = "actions/bin/filter@master"
-  args = "branch master"
+  args = "action 'opened|synchronize'"
 }
 
-action "replicated_release" {
-  uses = "replicatedhq/replicated-action/release@v0.2.0"
-  needs = "filter-branch"
+action "replicated_lint" {
+  uses = "replicatedhq/replicated-action/lint@v0.2.0"
+  needs = "filter-to-pr-open-synced"
   secrets = [
     "GITHUB_TOKEN",
     "REPLICATED_API_TOKEN"
@@ -51,6 +51,5 @@ The following environment variables can be set to override defaults:
 | Name | Default Value | Description |
 |------|---------------|-------------|
 | REPLICATED_APP | "" | Required. Set to the app ID or app slug of your Replicated app |
-| REPLICATED_CHANNEL | "Unstable" | Set to the channel name or ID to promote to |
-| REPLICATED_YAML | "./replicated.yaml" | Set to the path of the YAML to promote |
+| REPLICATED_YAML | "./replicated.yaml" | Set to the path of the YAML to lint |
 
